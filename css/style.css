@@ -139,6 +139,7 @@ nav a:focus {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr; /* Three columns with widths 1fr, 5fr, and 1fr */
   grid-gap: 15px; /* Gap of 15px between rows */
+  align-items: center;
 }
 
 /* Step 5: Write selector/rule property to add the background image to the 
@@ -146,7 +147,6 @@ first div in the grid  and place it in the grid. */
 
 .container > :first-child {
   grid-column: 1 / -1; /* Take up all columns */
-  background-image: url('images/header.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -222,23 +222,54 @@ first div in the grid  and place it in the grid. */
   border: 10px solid black;
   padding: 30px;
   margin-bottom: 20px; /* Optional: Add some space below each text block */
-  text-align: center; /* Center text horizontally */
+  text-align: center;
   justify-content: center;
-  align-items: center; /* Center text vertically */
+  align-items: center;
 }
 
 /* Add your media query here */
 
+@media screen and (min-width: 800px) {
 
   /* Step 9: Write the selector/rule property to style the nav element */
 
- 
+  nav {
+    text-align: right;
+    padding: 30px 0; /* 30px padding on top and bottom, 0 padding on left and right */
+  }
+
   /* Step 10: Write the selector/rule property to update the .container class */
 
+  .container {
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px; /* Five columns as specified */
+  }
 
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
 
+  .about,
+  .clients,
+  .method-image,
+  .contact-image {
+    grid-column: 3 / span 2; /* Begin in the third column and span two columns */
+  }
+  .method,
+  .contact,
+  .about-image,
+  .clients-image {
+    grid-column: 2 / span 2; /* Begin in the second column and span two columns */
+  }
+
+  .overview {
+    grid-column: 2 / span 3;
+  }
 
 
  /* Step 13:Write the selector/rule property to update the .text-block class */
 
+  .text-block {
+    max-height: 250px; /* Maximum height of 250px */
+    overflow: auto; /* Ensure content that goes outside the grid cell is still reachable */
+  }
+
+}
