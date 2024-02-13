@@ -157,11 +157,16 @@ first div in the grid  and place it in the grid. */
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
 
+.overview,
 .about,
 .method,
 .clients,
 .contact {
   grid-column: 2 / span 1; /* Begin in 2nd column and span one column */
+}
+
+.overview {
+  grid-row: 1;
 }
 
 .about {
@@ -180,6 +185,7 @@ first div in the grid  and place it in the grid. */
   grid-row: 5; /* Begin on the 5th row */
 }
 
+.overview-image,
 .about-image,
 .method-image,
 .clients-image,
@@ -187,6 +193,10 @@ first div in the grid  and place it in the grid. */
   grid-column: 1 / -1; /* Cover all columns */
   max-height: 600px; /* Maximum height of 600px */
   overflow: hidden; /* Hide any content that goes outside their grid cell */
+}
+
+.overview-image {
+  grid-row: 1;
 }
 
 .about-image {
